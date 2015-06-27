@@ -1,0 +1,1265 @@
+<?php
+$page->addScript("js/index.js","js/scrol_button.js");
+function allcategory($page)
+{
+    $page->setTitle("Купить мебель в Донецке. Продажа мебели в Донецке | Мебельград");
+    $page->setKeywords("Мебельград МебельградЪ ВТЦ Выставочно-торговый центр Донецк мебель мебельный мягкая мягкая офисная корпусная детская кровати столы стулья диваны кресла");
+    $page->setDescription("Продажа мебели. Выставочно-торговый центр «Мебельград» является крупнейшим специализированным торговым центром Донецка по продаже мебели и сопутствующих товаров.");
+
+}
+?>
+<div class='galery display_none'>
+<div class='position_fixed galery_back' ></div>
+   <div class='position_fixed z_index_9999 gall_position photo_gallery galery_floors_shadow back_and_padding_photo_gallery'>			  
+   				   <div class='top_left_arrow gal_arrow_left position_absolute gal_arrow_height_'><div class='gal_arrow '></div></div>	
+   				   <div class='top_right_arrow gal_arrow_right position_absolute gal_arrow_height_'><div class='gal_arrow gal_arrow_right_pos'></div></div>	
+   				    <div class='position_relative'>
+   				    	 <div class='position_absolute'>
+   				    		<div id='count' ></div>
+   				    	 </div>
+   				    </div>
+    		      <div class='float_right'><div class='close_photos_gal position_absolute' title='Закрыть (Esc)'></div></div>
+    		     	    <div class='position_relative overflow_hidden photo_gallery'>
+    		     	    	 <div class='position_absolute preloader' id='preloader_gif'></div>
+		    		    		<div id='for-map' >
+		    		    		</div>
+    		    		</div>
+    		    	<div class='position_relative'><div class='esc_gal'>Навигация: стрелка влево, стрелка вправо, Esc</div></div>
+    		     
+   </div>
+</div>
+
+<!-- show_on_flooor-->
+<?php
+//
+	print "<div class='galery_floors display_none'>
+<div class='position_fixed galery_back' ></div>
+   <div class='position_fixed z_index_9999 visitors_in_what_floor visit_floor_galery galery_floors_shadow '>
+    		    <div class='back_and_padding_visit_floor_gal'>
+    		    <div class='float_right'><div class='close_floor_gal position_absolute' title='Закрыть (Esc)'></div><div class='esc_out position_absolute'></div></div>";
+	    				    $sql_slect_color_pomesh='SELECT * FROM floors';
+	    				    $db->query($sql_slect_color_pomesh);
+							if($db->getCount()>0)
+							{
+								$arr_select_color=$db->getArray();
+								for($i=1;$i<4;$i++)
+								{
+									if($i==1)
+									{
+										print "<div class='tenants_first_floor height_for_floor_gal_visit_flo display_none'>
+	    									   <div class='position_relative floor_color_ralative_coord_floor_1'>";
+									}
+									else
+									if($i==2)
+									{
+										print "<div class='tenants_second_floor height_for_floor_gal_visit_flo display_none'>
+	    									   <div class='position_relative floor_color_ralative_coord_floor_2'>";
+									}
+									else
+	    							{
+	    								print "<div class='tenants_threed_floor height_for_floor_gal_visit_flo display_none'>
+	    									   <div class='position_relative floor_color_ralative_coord_floor_3'>";
+	    							}
+																foreach($arr_select_color as $arr_select_color_index=>$arr_select_color_value)
+								{
+									    if($arr_select_color_value['floor']==$i)
+										{
+											if($arr_select_color_value['numb']=="101")
+										{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								     		 <div class='floor".$arr_select_color_value['numb']."_exaption color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 	 </div>";
+										}
+										/*else 
+										if($arr_select_color_value['numb']=="106")
+										{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								     		  <div class='floor".$arr_select_color_value['numb']."_exaption color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}*/
+										else
+										if($arr_select_color_value['numb']=="112")
+										{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								     		  <div class='floor".$arr_select_color_value['numb']."_exaption_1 color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}
+										else
+										if($arr_select_color_value['numb']=="116")
+										{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								     		  <div class='floor".$arr_select_color_value['numb']."_exaption color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}
+										else
+										if($arr_select_color_value['numb']=="209")
+												{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								     		  <div class='floor".$arr_select_color_value['numb']."_exaption color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}
+										else
+										if($arr_select_color_value['numb']=="223")
+										{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								     		  <div class='floor".$arr_select_color_value['numb']."_exaption_2 color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}
+                                        else
+										if($arr_select_color_value['numb']=="223-a")
+										{
+											 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		  <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}
+										else
+										if($arr_select_color_value['numb']=="329")
+										{
+										echo "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none'>
+									   <div class='position_absolute'>
+						     				  <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+						     		 		  <div class='floor".$arr_select_color_value['numb']."_exaption color_hover_pomesh opacity_0_6'></div>
+						      	    	</div>
+								    	</div>";
+										}
+										else
+									   if($arr_select_color_value['numb']=="338")
+										{
+											echo "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none'>
+											 <div class='position_absolute'>
+									     		  <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								      	     </div>";
+							}
+							else
+							if($arr_select_color_value['numb']=="333")
+							{
+								echo "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none'>
+									<div class='position_absolute'>
+						     		 	 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+						     		  	 <div class='floor".$arr_select_color_value['numb']."_exaption color_hover_pomesh opacity_0_6'></div>
+						      	     </div> 
+						      	     </div>";
+							}
+							else
+							if($arr_select_color_value['numb']=="оф.1")
+							{
+								echo "<div class='id_of1 position_absolute display_none'>
+									 <div class='position_absolute'>
+						     		  <div class='floor_of1 color_hover_pomesh opacity_0_6'></div>
+						      	     </div>
+						      	     
+								    </div>";
+							}
+							else
+							if($arr_select_color_value['numb']=="оф.2")
+							{
+								echo "<div class='id_of2 position_absolute display_none'>
+									 <div class='position_absolute'>
+							     		  <div class='floor_of2 color_hover_pomesh opacity_0_6'></div>
+							      	     </div>
+								    </div>";
+							}
+							else
+							if($arr_select_color_value['numb']=="оф.3")
+							{
+								echo "<div class='id_of3 position_absolute display_none'>
+									 
+									 <div class='position_absolute'>
+						     		  <div class='floor_of3 color_hover_pomesh opacity_0_6' ></div>
+						      	     </div>
+								    </div>";
+							}
+										else
+										 print "<div class='id_".$arr_select_color_value['numb']." position_absolute display_none' >
+											 <div class=' position_absolute'>
+								     		 <div class='floor".$arr_select_color_value['numb']." color_hover_pomesh opacity_0_6'></div>
+								      	     </div>
+								   		 </div>";
+										}
+										}
+									print '</div></div>';
+								}
+	
+										
+							}
+	    					
+	    			print "
+					<!--<div class='position_relative'><div class='esc_gal margin_top_10'>Esc выход</div></div>-->
+				</div>
+			</div>
+		
+		</div>
+		</div>
+ <!-- galery-->";
+?>
+<!-- -->	
+<div class='clear'></div>
+<div class=' content_tenants'>
+	<div class='width4size margin_0_auto'>
+		<div class='tenants_top_title '>Торговый центр «Мебельград» предлагет покупателям</div>
+		<div class='tenants_top_razt_after_title margin_left_27 margin_right_27'>
+			<div class='float_left'>
+				<div class='tenants_top_text_block margin_bottom_0'>ВТЦ «Мебельград» рад приветствовать Вас на своем сайте. Здесь Вы найдете информацию о том, какую мебель и товары для дома предлагают наши салоны. Наши менеджеры позаботились не только о том, чтобы в ТЦ были представлены практически все направления в мебели, но и поддерживают внутреннюю конкуренцию между салонами, что позволяет обеспечить самые низкие цены в городе.</div>
+				
+			</div>
+			<div class='float_right'>
+				<div class='tenants_top_text_block margin_bottom_0'> Итак, вперед. Все очень просто. "Кликнув" на любой тип мебели или товара
+																	для дома, Вы попадаете в наши  салоны, расположенные на разных этажах и
+																	торгующих выбранным Вами товаром.  А, благодаря внутренней навигации ТЦ,
+																	лифту и эскалатору, Вы легко сможете добраться  до них. Желаем приятных
+																	покупок.
+					<!--<br /><br /><b>С 1 мая время работы ТЦ: Пн-Сб с&nbsp;10:00 до&nbsp;19:00, Вс с&nbsp;10:00 до&nbsp;18:00.</b>-->	
+				</div>
+				
+			</div>
+			<div class='clear'></div>
+		</div>
+		
+		<div class='margin_left_27 margin_right_27'>
+			
+			<?php
+			$floor=0;
+			$premises=0;
+			$f_number = array('101', '102', '103', '104','105','106-1','106-2','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121');
+			$s_number = array('201', '202-1', '202-2', '203', '204','205','206','207','208','209','210-1','210-2','211','212','213','214-1','214-2','215','216','217','218','219','220','221-1a','221-1b','221-2','222','223','223-a','224','225','226','227','228','229','230');
+			$t_number = array('301', '302', '303', '304','305','306','307','308','309','310','311','312','313','314','315','316','317','318','319','320','321','322','323','324','325','326','327','328','329','330','331','332-1','332-2','333-1','333-2','334','335','336-1','336-2','337-1','337-2',338);
+			if($controller->paramsArray[0]=='floor' AND is_numeric($controller->paramsArray[1]) AND $controller->paramsArray[1]>0 AND $controller->paramsArray[1]<4)
+			{
+				$floor = $controller -> getParam('floor');
+			}
+			else
+			if($controller->paramsArray[0]=='premises' AND is_numeric($controller->paramsArray[1]) AND (in_array($controller->paramsArray[1], $f_number) OR in_array($controller->paramsArray[1], $s_number) OR in_array($controller->paramsArray[1], $t_number)))
+			{
+				$premises = $controller -> getParam('premises');
+			}
+			else
+			{
+				if($controller->paramsArray[0]=='category' AND is_numeric($controller->paramsArray[1]))
+				{
+					$category = $controller -> getParam('category');
+					//есть ди такая категория
+					$sql='SELECT * FROM type WHERE id='.$category;
+					$db->query($sql);
+					if($db->getCount()>0)
+					{
+                            $seo=$db->getRow();
+							$category=$controller -> getParam('category');
+                            $page->setTitle($seo['title_seo']);
+                            $page->setKeywords($seo['keywords']);
+                            $page->setDescription($seo['description_seo']);
+                    }
+					else
+					{
+							$category='all';
+                            allcategory($page);
+                    }
+				}
+				else
+				if($controller->paramsArray[0]=='category' AND $controller->paramsArray[1]=='all')
+				{
+						$category=0;
+                        allcategory($page);
+				}
+				else
+				{
+					$category='all';
+                    allcategory($page);
+				}
+			}
+		if($floor!=0 OR $premises!=0)
+		{
+			$category=-1;
+		}
+	 //арендаторы
+		 print '<div class="arendators_block visitors_block_otstup">';
+		 print "<div class='tenants_delim'></div>";
+	 	print '<div class="arendators_block_padding">';
+		print '<a name="category"></a>';
+			print '<div class="arendators_title">Категории товаров</div>';
+			$sql_alphabet='SELECT * FROM type ORDER BY title';
+			$db->query($sql_alphabet);
+			if($db->getCount()>0)
+			{
+				$arr_name=$db->getArray();
+				foreach($arr_name as $index=>$val)
+				{
+					$sql_arendators='SELECT *FROM type_for_pomesh WHERE id_group='.$val['id'];
+			$db->query($sql_arendators);
+			if($db->getCount()>0)
+			{
+				$arr=$db->getArray();
+				foreach($arr as $index=>$value)
+				{
+					//смотрим цвет помещения или его родителя
+					$sql_color_pomesh_or_parent='SELECT * FROM floors WHERE color<>0 AND name_company<>"" AND numb="'.$value['pomesh'].'"';
+					$db->query($sql_color_pomesh_or_parent);
+					if($db->getCount()>0)
+					{
+                            print '<div class="visitors_block_text_link">';
+						    //берем название категории
+							$sql_color_pomesh_or_parent='SELECT title,id FROM type WHERE id='.$value['id_group'];
+							$db->query($sql_color_pomesh_or_parent);
+							if($db->getCount()>0)
+							{
+								$arr3=$db->getArray();
+								if(!empty($arr3[0]['title']))
+								{
+									if($arr3[0]['id']==$category)
+									{
+											print '<div><div class="budet_link ">
+											<div class="visitors_block_text_back_left_in float_left">
+												<div class="visitors_block_text_back_right_in ">
+													<div class="visitors_block_text_back_in " >'.$val['title'].'</div>
+												</div>
+											</div>
+											
+											
+											</div>
+											</div>'; 
+										 
+									}
+									else
+									{
+										print '<div><div class="budet_link ">
+											<div class="visitors_block_text_back_left float_left">
+												<div class="visitors_block_text_back_right ">
+													<div class="visitors_block_text_back " >
+														<a href="visitors/page/category/'.$val['id'].'#'.$val['id'].'">'.$val['title'].'</a>
+													</div>
+												</div>
+											</div>
+												
+										</div>
+										</div>';  
+									}
+								}
+								
+								
+							}
+                        print '</div>';
+						break;
+					}
+
+				}
+				
+              
+			    }
+				}
+			}
+				
+				 //если в базе есть хоть что то из представленных фирм
+				$sql_arendators='SELECT * FROM type_for_pomesh GROUP BY pomesh';
+				$db->query($sql_arendators);
+				if($db->getCount()>0)
+				{
+					if($category==0)
+					{
+						print '<div class="visitors_block_text_link"><div><div class="budet_link ">
+											<div class="visitors_block_text_back_left_in float_left">
+												<div class="visitors_block_text_back_right_in ">
+													<div class="visitors_block_text_back_in ">Все категории</div>
+												</div>
+											</div>
+												
+											</div>
+											</div>
+											</div>'; 
+					}
+					else
+					{
+						 print '<div class="visitors_block_text_link"><div><div class="budet_link ">
+										<div class="visitors_block_text_back_left float_left">
+										<div class="visitors_block_text_back_right ">
+											<div class="visitors_block_text_back">
+											 <a href="visitors/page/category/all#all">Все категории</a>
+											</div>
+										</div>
+										</div>
+											
+									</div>	
+									</div>
+									</div>'; 
+					}
+				}
+		print '</div>';
+		
+	 print "<div class='clear tenants_delim position_0_bottom height_visit_category_tovarov' id='metka'></div>";
+	  print '<div id="button_up" class="display_none"><div class="button_up_triangle float_left"></div><div class="float_left button_fixed_text padding_top_button_fixed">Категории&nbsp;товаров</div></div>';
+	 print '</div>';//arendators_block
+	 
+	 print '<div class="margin_left_27 margin_right_27">';
+	 if($floor!=0)
+	 {
+	 	print '<a NAME="'.$floor.'"></a>';
+	 	print '<div class="tenants_top_text_block_title">Представленные фирмы ('.$floor.' этаж)</div>';
+	 }
+	 else
+	 if($category!=0)
+	 {
+	 	print '<a NAME="'.$category.'"></a>';
+		$sql_select_category='SELECT title FROM type WHERE id='.$category;
+		$db->query($sql_select_category);
+		if($db->getCount()>0)
+		{
+			print '<div class="tenants_top_text_block_title">Представленные фирмы ('.$db->getValue().')</div>';
+		}
+		else
+		{
+			print '<div class="tenants_top_text_block_title">Представленные фирмы</div>';
+		}
+	 }
+	 else
+	 if($category=='all')
+		{
+			print '<a NAME="all"></a>';
+			print '<div class="tenants_top_text_block_title">Представленные фирмы (Все категории)</div>';
+		}
+	 else
+	 {
+	 	print '<div class="tenants_top_text_block_title">Представленные фирмы</div>';
+	 }
+	 	
+	 	print '<div class="float_right visitors_hide_all_show_all"><span id="show_all">Показать все</span>&nbsp;&nbsp;&nbsp;<span id="hide_all">Скрыть все</span></div>';
+	 	print '<div class="vis_all_block">';
+	 	if($premises==0)
+		{
+		  if($category!=-1)
+		 {
+		 	 if($category!=0)  //$sql_arendators='SELECT * FROM type_for_pomesh WHERE id_group='.$category.' GROUP BY pomesh';
+		 	 $sql_arendators='SELECT * FROM type_for_pomesh as tfp, floors as f WHERE f.parent="" AND tfp.pomesh=f.numb AND tfp.id_group='.$category.' GROUP BY tfp.pomesh';
+		 	 else 	//$sql_arendators='SELECT * FROM type_for_pomesh GROUP BY pomesh';
+             $sql_arendators='SELECT * FROM type_for_pomesh as tfp, floors as f WHERE f.parent="" AND tfp.pomesh=f.numb GROUP BY tfp.pomesh';
+		 }
+		else
+		{
+			if($floor==1) {$sql_arendators='SELECT * FROM type_for_pomesh WHERE pomesh BETWEEN 101 AND 121 GROUP BY pomesh';}
+			else if($floor==2) {$sql_arendators='SELECT * FROM type_for_pomesh WHERE pomesh BETWEEN 201 AND 230 GROUP BY pomesh';}
+			else if($floor==3) {$sql_arendators='SELECT * FROM type_for_pomesh WHERE pomesh BETWEEN 301 AND 338 GROUP BY pomesh';}
+		}
+			$db->query($sql_arendators);
+			if($db->getCount()>0)
+			{
+				
+				$arr=$db->getArray();
+				foreach($arr as $index=>$value)
+				{
+					$select_embl='SELECT * FROM floors WHERE numb="'.$value['pomesh'].'" AND plus_m=1';
+					$db->query($select_embl);
+					if($db->getCount()>0)
+					{
+						$mass_floors=$db->getArray();
+						if(!empty($mass_floors[0]['name_company']))
+						{
+							print '<div class="visitors_block">';
+							print '<div class="tenants_delim"></div>';
+							print '<div class="clear"></div>';
+							if($mass_floors[0]['plus_m']==1)
+							{
+									print '<div class="visitors_plus_minus float_left"></div>';
+								
+							}
+							print '<div class="visitors_min_block">';
+							$select_embl='SELECT * FROM embl WHERE room_number="'.$value['pomesh'].'"';
+							$db->query($select_embl);
+							if($db->getCount()>0) // есть эмблема
+							{
+								$arr2=$db->getArray();
+								
+								print '<div class="float_left emblem_size"><img src="../img/embl/1000/'.$arr2[0]['file_name'].'_m.png" alt=""/></div>';
+							}
+							else //нет эмблемы
+							{
+								print '<div class="float_left emblem_size"><img src="../img/1000/visitors_empty.png" alt=""/></div>';
+							}
+							//фирма
+							$select_firma='SELECT * FROM floors WHERE numb="'.$value['pomesh'].'"';
+							$db->query($select_firma);
+							if($db->getCount()>0)
+							{
+								$mass=$db->getArray();
+								print '<div class="vis_min_block_top_right_min_block">';
+								print '<div class="float_left visitors_min_block_firma">'.$mass[0]['name_company'].'</div>';
+								//right_block_phone
+								print '<div class="float_right">';
+											print '<div class="visitors_phone">'.$mass[0]['phone1'];
+											if(!empty($mass[0]['phone2'])) {
+												print ' &nbsp;&nbsp;'.$mass[0]['phone2'];
+											}
+								print '</div>';
+								print '</div>';
+								print '</div>';
+							}
+							//
+							print '</div>'; //конец min_block
+							
+							//max_block
+							print '<div class="visitors_max_block display_none">';
+							print '<div class="float_right width_max_vis_block" >';
+						
+									$sql_select_all_room_='SELECT * FROM floors WHERE parent="'.$mass_floors[0]['numb'].'"';
+									$db->query($sql_select_all_room_);
+									if($db->getCount()>0)
+									{
+										$room_numbers=$mass_floors[0]['numb'];
+										$arr_all_numb_room=$db->getArray();
+										foreach($arr_all_numb_room as $index_arr_all_numb_room=>$val_arr_all_numb_room)
+										{
+										
+											if($val_arr_all_numb_room['numb']=='оф.1')
+											{
+												$room_numbers.='~'.'of1';
+											}
+											else
+											if($val_arr_all_numb_room['numb']=='оф.2')
+											{
+												$room_numbers.='~'.'of2';
+											}
+											else
+											if($val_arr_all_numb_room['numb']=='оф.3')
+											{
+												$room_numbers.='~'.'of3';
+											}
+											else
+											{
+												$room_numbers.='~'.$val_arr_all_numb_room['numb'];
+											}
+										}
+										
+									}
+								else {
+									
+									   $room_numbers='';
+										    if($mass_floors[0]['numb']=='оф.1')
+											{
+												$room_numbers.='of1';
+											}
+											else
+											if($mass_floors[0]['numb']=='оф.2')
+											{
+												$room_numbers.='of2';
+											}
+											else
+											if($mass_floors[0]['numb']=='оф.3')
+											{
+												$room_numbers.='of3';
+											}
+											else
+											{
+												$room_numbers.=$mass_floors[0]['numb'];
+											}
+								
+								}	
+							$select_embl='SELECT * FROM embl WHERE room_number="'.$value['pomesh'].'"';
+							$db->query($select_embl);
+							if($db->getCount()>0) // есть эмблема
+							{
+								$arr3=$db->getArray();
+								print '<div class="float_left emblem_size_razvern"><img src="../img/embl/1000/'.$arr3[0]['file_name'].'.png" alt=""/><div><div class="razpolozhenie_na_etazhe" data-id="'.$room_numbers.'">Расположение&nbsp;на&nbsp;'.$mass_floors[0]['floor'].'&nbsp;этаже</div></div></div>';
+							}
+							else //нет эмблемы
+							{
+								print '<div class="float_left emblem_size_razvern"><img src="../img/1000/visitors_empty.png" alt=""/><div><div class="razpolozhenie_na_etazhe" data-id="'.$room_numbers.'">Расположение&nbsp;на&nbsp;'.$mass_floors[0]['floor'].'&nbsp;этаже</div></div></div>';
+							}
+							//фирма
+							print '<div class="vis_min_block_top_right">';
+							print '<div class="float_right width_max_vis_block_text_and_photos_only">';
+							$select_firma='SELECT * FROM floors WHERE numb="'.$value['pomesh'].'"';
+							$db->query($select_firma);
+							if($db->getCount()>0)
+							{
+								$mass=$db->getArray();
+								//right_block_phone
+								print '<div class="float_right">';
+											print '<div class="visitors_phone_other">'.$mass[0]['phone1'];
+											if(!empty($mass[0]['phone2'])) {
+												print ' &nbsp;&nbsp;'.$mass[0]['phone2'];
+											}
+											print '</div>';
+											if(!empty($mass[0]['site']))
+											{
+												print '<div class="text_align_right"><a class="visitors_min_block_site" href="'.$mass[0]['site'].'" target="_blank" title="">Сайт компании</a></div>';
+											}
+								print '</div>';
+								print '<div class="float_left">';
+								print '<div class="max_vis_bloxk_title">'.$mass[0]['name_company'].'</div>';
+								
+							}
+							print '<div class="clear"></div>';
+							//перечисляем категории
+							$sql_category='SELECT * FROM type_for_pomesh WHERE pomesh="'.$value['pomesh'].'"';
+							$db->query($sql_category);
+							if($db->getCount()>0)
+							{
+								$arr_category=$db->getArray();
+								print '<div class="visitors_max_block_category visit_category_color_font">';
+								foreach($arr_category as $arr_category_index=>$arr_category_value)
+								{
+									//title
+									$sql_title='SELECT *FROM type WHERE id='.$arr_category_value['id_group'];
+									$db->query($sql_title);
+									if($db->getCount()>0)
+									{
+										$arr_type_title=$db->getArray();
+										if($arr_category_index+1!=count($arr_category))
+										{
+											$koma=', ';
+										}
+										else
+										{
+											$koma='';
+										}
+										print '<a href="/visitors/page/category/'.$arr_type_title[0]['id'].'" alt="">'.$arr_type_title[0]['title'].'</a>'.$koma;
+									}
+									
+								}
+								print '</div>';
+							}
+							print '</div>';
+							print '<div class="clear"></div>';
+							//text
+							$sql_description='SELECT description FROM floors WHERE numb="'.$value['pomesh'].'"';
+							$db->query($sql_description);
+							if($db->getCount()>0)
+							{
+								$descr=$db->getValue();
+								if(!empty($descr))
+								{
+									print '<div class="visitors_max_block_description">'.$descr.'</div>';
+								}
+								
+							}
+							//
+							//photo
+							$sql_sel_photo='SELECT * FROM photos WHERE room_number="'.$value['pomesh'].'" ORDER BY first_thr DESC LIMIT 3';
+							$db->query($sql_sel_photo);
+							if($db->getCount()>0)
+							{
+								print '<div class="photo_gal">';
+								$arr_photo=$db->getArray();
+								foreach($arr_photo as $arr_photo_index=>$arr_photo_val)
+								{
+									if($arr_photo_index!=0)
+									{
+										$margin_left='vis_max_block_photos_margin_left';
+									}
+									else
+									{
+										$margin_left='';
+									}
+									print '<div class="float_left vis_max_block_photos '.$margin_left.'"><img src="../img/photos/1000/'.$arr_photo_val['file_name'].'_p.jpg" alt="" data-id="'.$arr_photo_val['file_name'].'"/></div>';
+								}
+								print '</div>';
+							}
+							print '</div>';
+							print '</div>';
+							//
+							print '</div>';//end of 1185
+							print '</div>'; //конец max_block
+						
+							//
+							print '<div class="clear"></div>';
+							print '</div>';
+								
+							
+						}
+					}
+				}
+				print '<div class="clear"></div>';
+				foreach($arr as $index=>$value)
+				{
+					//now select where plus_m=0
+					$select_embl='SELECT * FROM floors WHERE numb="'.$value['pomesh'].'" AND plus_m=0 AND parent=0';
+					$db->query($select_embl);
+					if($db->getCount()>0)
+					{
+						$mass_floors=$db->getArray();
+						if(!empty($mass_floors[0]['name_company']))
+						{
+							print '<div class="visitors_block_without_max_block">';
+							print '<div class="tenants_delim"></div>';
+							print '<div class="clear"></div>';
+							print '<div class="visitors_min_block">';
+							$select_embl='SELECT * FROM embl WHERE room_number="'.$value['pomesh'].'"';
+							$db->query($select_embl);
+							if($db->getCount()>0) // есть эмблема
+							{
+								$arr=$db->getArray();
+								print '<div class="float_left emblem_size_without_plus"><img src="../img/embl/1000/'.$arr[0]['file_name'].'_m.png" alt=""/></div>';
+							}
+							else //нет эмблемы
+							{
+								print '<div class="float_left emblem_size_without_plus"><img  src="../img/1000/visitors_empty.png" alt=""/></div>';
+							}
+							//фирма
+							$select_firma='SELECT * FROM floors WHERE numb="'.$value['pomesh'].'"';
+							$db->query($select_firma);
+							if($db->getCount()>0)
+							{
+								$mass=$db->getArray();
+								
+								print '<div class="vis_min_block_top_right">';
+								print '<div class="float_left visitors_min_block_firma">'.$mass[0]['name_company'].'</div>';
+								//right_block_phone
+								print '<div class="float_right">';
+											print '<div class="visitors_phone">'.$mass[0]['phone1'];
+											if(!empty($mass[0]['phone2'])) {
+												print ' &nbsp;&nbsp;'.$mass[0]['phone2'];
+											}
+											print '</div>';
+								print '</div>';
+								print '</div>';
+							}
+							//
+							print '</div>'; 
+							
+							print '<div class="clear"></div>';
+							print '</div>';
+						}
+					}
+					}
+					print '<div class="tenants_delim position_0_bottom"></div>';
+				print '</div>'; //end of visit_all_block
+			}
+		}
+		else //premises!=0
+		{
+			        //ищем родителя
+			        $sql_select_='SELECT parent FROM floors WHERE numb="'.$premises.'"';
+					$db->query($sql_select_);
+					if($db->getCount()>0)
+					{
+						if($db->getValue()==0)
+						{
+							$premises=$premises;
+						}
+						else
+						{
+							$premises=$db->getValue();
+						}
+					}
+			        
+					$select_embl='SELECT * FROM floors WHERE numb="'.$premises.'"';
+					$db->query($select_embl);
+					if($db->getCount()>0)
+					{
+						$mass_floors=$db->getArray();
+						
+						if(!empty($mass_floors[0]['name_company']))
+						{
+							if($mass_floors[0]['plus_m']==1)
+							{
+								print '<div class="visitors_block height_zero background_color_fff2cc">';
+								print '<a NAME="'.$premises.'"></a>';
+							}
+							else
+							{
+								print '<div class="visitors_block_without_max_block">';
+								print '<a NAME="'.$premises.'"></a>';
+							}
+							print '<div class="tenants_delim"></div>';
+							print '<div class="clear"></div>';
+							if($mass_floors[0]['plus_m']==1)
+							{
+									print '<div class="visitors_plus_minus float_left visitors_plus_minus_back_pos_25"></div>';	
+							}
+							
+							if($mass_floors[0]['plus_m']==1)
+							{
+								print '<div class="visitors_min_block display_none">';
+							}
+							else
+							{
+								print '<div class="visitors_min_block">';	
+							}
+							$select_embl='SELECT * FROM embl WHERE room_number="'.$mass_floors[0]['numb'].'"';
+							$db->query($select_embl);
+							if($db->getCount()>0) // есть эмблема
+							{
+								$arr2=$db->getArray();
+								if($mass_floors[0]['plus_m']==1)
+								{
+									print '<div class="float_left emblem_size"><img src="../img/embl/1000/'.$arr2[0]['file_name'].'_m.png" alt=""/></div>';
+								}
+								else
+								{
+									print '<div class="float_left emblem_size_without_plus"><img src="../img/embl/1000/'.$arr2[0]['file_name'].'_m.png" alt=""/></div>';
+								}
+								
+							}
+							else //нет эмблемы
+							{
+								if($mass_floors[0]['plus_m']==1)
+								{
+									print '<div class="float_left emblem_size"><img src="../img/1000/visitors_empty.png" alt=""/></div>';
+								}
+								else
+								{
+									print '<div class="float_left emblem_size_without_plus"><img src="../img/1000/visitors_empty.png" alt=""/></div>';
+								}
+								
+							}
+							
+								print '<div class="vis_min_block_top_right_min_block">';
+								print '<div class="float_left visitors_min_block_firma">'.$mass_floors[0]['name_company'].'</div>';
+								//right_block_phone
+								print '<div class="float_right">';
+											print '<div class="visitors_phone">'.$mass_floors[0]['phone1'];
+											if(!empty($mass_floors[0]['phone2'])) {
+												print ' &nbsp;&nbsp;'.$mass_floors[0]['phone2'];
+											}
+											print '</div>';
+								print '</div>';
+								print '</div>';
+							
+							//
+							print '</div>'; //конец min_block
+							
+							//max_block
+							if($mass_floors[0]['plus_m']==1)
+							{
+									$sql_select_all_room_='SELECT * FROM floors WHERE parent="'.$mass_floors[0]['numb'].'"';
+									$db->query($sql_select_all_room_);
+									if($db->getCount()>0)
+									{
+										$arr_all_numb_room=$db->getArray();
+										foreach($arr_all_numb_room as $index_arr_all_numb_room=>$val_arr_all_numb_room)
+										{
+											
+											if($val_arr_all_numb_room['numb']=='оф.1')
+											{
+												$room_numbers.='~'.'of1';
+											}
+											else
+											if($val_arr_all_numb_room['numb']=='оф.2')
+											{
+												$room_numbers.='~'.'of2';
+											}
+											else
+											if($val_arr_all_numb_room['numb']=='оф.3')
+											{
+												$room_numbers.='~'.'of3';
+											}
+											else
+											{
+												$room_numbers.='~'.$val_arr_all_numb_room['numb'];
+											}
+											
+											
+										}
+									}
+									else {
+										$room_numbers='';
+										if($room_numbers=$mass_floors[0]['numb']=='оф.1')
+											{
+												$mass_floors[0]['numb']='of1';
+											}
+											else
+											if($mass_floors[0]['numb']=='оф.2')
+											{
+												$room_numbers='of2';
+											}
+											else
+											if($mass_floors[0]['numb']=='оф.3')
+											{
+												$room_numbers='of3';
+											}
+											else
+											{
+												$room_numbers=$mass_floors[0]['numb'];
+											}
+									}
+								
+								print '<div class="visitors_max_block height_zero background_color_fff2cc">';
+								print '<div class="float_right width_max_vis_block" >';
+							$select_embl='SELECT * FROM embl WHERE room_number="'.$mass_floors[0]['numb'].'"';
+							$db->query($select_embl);
+							if($db->getCount()>0) // есть эмблема
+							{
+								$arr3=$db->getArray();
+								print '<div class="float_left emblem_size_razvern"><img src="../img/embl/1000/'.$arr3[0]['file_name'].'.png" alt=""/><div class="razpolozhenie_na_etazhe" data-id="'.$room_numbers.'">Расположение&nbsp;на&nbsp;'.$mass_floors[0]['floor'].'&nbsp;этаже</div></div>';
+							}
+							else //нет эмблемы
+							{
+								print '<div class="float_left emblem_size_razvern"><img src="../img/1000/visitors_empty.png" alt=""/><div><div class="razpolozhenie_na_etazhe" data-id="'.$room_numbers.'">Расположение&nbsp;на&nbsp;'.$mass_floors[0]['floor'].'&nbsp;этаже</div></div>';
+							}
+						
+							//фирма
+							print '<div class="vis_min_block_top_right">';
+							print '<div class="float_right width_max_vis_block_text_and_photos_only">';
+								print '<div class="float_left max_vis_bloxk_title">'.$mass_floors[0]['name_company'].'</div>';
+								//right_block_phone
+								print '<div class="float_right">';
+											print '<div class="visitors_phone_other">'.$mass_floors[0]['phone1'];
+											print '<input type="hidden" value="'.$mass_floors[0]['phone1'].'"/>';
+											if(!empty($mass_floors[0]['phone2'])) {
+												print ' &nbsp;&nbsp;'.$mass_floors[0]['phone2'];
+											}
+											print '</div>';
+											if(!empty($mass_floors[0]['site']))
+											{
+												print '<div class="text_align_right"><a class="visitors_min_block_site" href="'.$mass_floors[0]['site'].'" target="_blank" title="">Сайт компании</a></div>';
+											}
+								print '</div>';
+							
+							print '<div class="clear"></div>';
+							//перечисляем категории
+							$sql_category='SELECT * FROM type_for_pomesh WHERE pomesh="'.$mass_floors[0]['numb'].'"';
+							$db->query($sql_category);
+							if($db->getCount()>0)
+							{
+								$arr_category=$db->getArray();
+								print '<div class="visitors_max_block_category visit_category_color_font">';
+								foreach($arr_category as $arr_category_index=>$arr_category_value)
+								{
+									//title
+									$sql_title='SELECT *FROM type WHERE id='.$arr_category_value['id_group'];
+									$db->query($sql_title);
+									if($db->getCount()>0)
+									{
+										$arr_type_title=$db->getArray();
+										if($arr_category_index+1!=count($arr_category))
+										{
+											$koma=', ';
+										}
+										else
+										{
+											$koma='';
+										}
+										print '<a href="/visitors/page/category/'.$arr_type_title[0]['id'].'" alt="">'.$arr_type_title[0]['title'].'</a>'.$koma;
+									}
+									
+								}
+								print '</div>';
+							}
+							//text
+							if(!empty($mass_floors[0]['description']))
+							{
+								print '<div class="visitors_max_block_description">'.$mass_floors[0]['description'].'</div>';
+							}
+							//
+							//photo
+							$sql_sel_photo='SELECT * FROM photos WHERE room_number="'.$mass_floors[0]['numb'].'" ORDER BY first_thr DESC LIMIT 3';
+							$db->query($sql_sel_photo);
+							if($db->getCount()>0)
+							{
+								print '<div class="photo_gal">';
+								$arr_photo=$db->getArray();
+								foreach($arr_photo as $arr_photo_index=>$arr_photo_val)
+								{
+									if($arr_photo_index!=0)
+									{
+										$margin_left='vis_max_block_photos_margin_left';
+									}
+									else
+									{
+										$margin_left='';
+									}
+									print '<div class="float_left vis_max_block_photos '.$margin_left.'"><img src="../img/photos/1000/'.$arr_photo_val['file_name'].'_p.jpg" alt="" data-id="'.$arr_photo_val['file_name'].'"/></div>';
+								}
+								print '</div>';
+							}
+							print '</div>';
+							print '</div>';
+							//
+							print '</div>';//end of 1185
+							print '</div>'; //конец max_block
+							}
+							
+							
+							
+							//
+							print '<div class="clear"></div>';
+							print '</div>';
+								
+							
+						}
+					}
+					print '<div class="tenants_delim position_0_bottom"></div>';
+				
+		}
+		
+	 	
+	 print '</div>';
+	 
+	 
+	 
+	  print '</div>';//margin_left_27
+			?>
+		
+	</div>
+</div>
+<script type='text/javascript'>
+    var istouch;
+    if((!!('ontouchstart' in window)))
+    {
+        istouch='touchstart';
+    }
+    else
+    {
+        istouch='click';
+    }
+ $('.button_close_gal, .galery_back,.close_floor_gal,.close_photos_gal').on(istouch,function()
+    {
+    	Viewer.close();
+    	$('.galery_floors').addClass('display_none');
+    	$('.tenants_first_floor').addClass('display_none');
+    	$('.tenants_first_floor>div>div').addClass('display_none');
+    	$('.tenants_second_floor').addClass('display_none');
+    	$('.tenants_second_floor >div>div').addClass('display_none');
+    	$('.tenants_threed_floor').addClass('display_none');
+    	$('.tenants_threed_floor >div>div').addClass('display_none');
+    	
+    })
+var pictures,
+    galerySize,     // переменная, в которой будет храниться размер галереи 
+    current,        // текущее изображение (его порядок в массиве)
+    nextImg,        // следующее изображение
+    prevImg,        // предыдущее изображение 
+    isAnimated = false;     // флаг - анимируется ли что-то в данный момент 
+ var m_anim_left;
+ var src_;
+ var Viewer = {
+   open: function(){
+        var css;
+	    var size=$(window).width();
+		if (size<=1100) { css='1000';}
+		else
+		if ((size>1100)&&(size<=1285)) {css='1240';}
+		else
+		if ((size>1285)&&(size<=1371)) {css='1320';}
+		else
+		if (size>1371) {css='1400';}	
+		$('.galery').removeClass('display_none');
+		var data=$(this).attr('data-id')
+		var galery = $("#for-map");
+  
+	     $.ajax({
+	        url: "../../lib/img.php",
+	        type: "post",
+	        async: false,
+	        data: {file_name:data},
+	        success: function(data2){
+	            eval(data2);
+	        }    
+	    });
+	    if(pictures.length==1) {
+	    	$('.gal_arrow_left,.gal_arrow_right').addClass('display_none');
+	    }
+	    else
+	   	{
+	   		$('.gal_arrow_left,.gal_arrow_right').removeClass('display_none');
+	   	}
+	    current=$(this).parent().index(); 	    
+	    galerySize = pictures.length;
+	    
+	    src_ = '../img/photos/'+css+'/'+pictures[current]+'.jpg';
+        var mainImg = $("<img />",{id : "mainImg",src : src_, alt : "galery"});
+        galery.append('<img src="'+src_+'"/>');
+        $('#count').replaceWith('<div id="count">'+(current+1)+' / '+galerySize+'</div>');
+        preload(current);
+     },
+       next: function(){
+       if(pictures.length==1) return false;
+       if (!isAnimated){
+       	 var css;
+	     var size=$(window).width();
+		if (size<=1100) { css='1000';m_anim_left=687;}
+		else
+		if ((size>1100)&&(size<=1285)) {css='1240';m_anim_left=825;}
+		else
+		if ((size>1285)&&(size<=1371)) {css='1320';m_anim_left=882;}
+		else
+		if (size>1371) {css='1400';m_anim_left=999;}	
+        isAnimated = true;
+         $('#for-map img').fadeOut("normal",function(){
+					$(this).attr('src',nextImg).fadeIn("normal");
+		            current++;
+		            if (current==galerySize) current = 0;
+		              preload(current);
+		              isAnimated = false;	
+					  $('#count').replaceWith('<div id="count" >'+(current+1)+' / '+galerySize+'</div>');
+					
+				});
+				return false;
+    }
+        
+      },
+      prev: function() 
+      	{
+      	if(pictures.length==1) return false;
+        if (!isAnimated){
+       	var css;
+	    var size=$(window).width();
+		if (size<=1100) { css='1000';m_anim_left=687;}
+		else
+		if ((size>1100)&&(size<=1285)) {css='1240';m_anim_left=825;}
+		else
+		if ((size>1285)&&(size<=1371)) {css='1320';m_anim_left=882;}
+		else
+		if (size>1371) {css='1400';m_anim_left=999;}	
+        isAnimated = true;
+
+        $('#for-map img').fadeOut("normal",function(){
+					$(this).attr('src',prevImg).fadeIn("normal");
+					 current--;
+		            if (current<0) current = galerySize-1;
+		            preload(current);
+					isAnimated=false;
+					 $('#count').replaceWith('<div id="count">'+(current+1)+' / '+galerySize+'</div>'); 
+				});
+				return false;
+    }
+      },
+       close: function(){
+        $(".galery").addClass('display_none');
+        $("#for-map").empty();
+        return false;
+      },
+      bindKeys: function(e){
+        switch (e.keyCode){
+          case 27: Viewer.close(); break;
+        }
+
+      }
+     
+ }
+ function preload(i){
+ 	 var css;
+     var size=$(window).width();
+	if (size<=1100) { css='1000';}
+	else
+	if ((size>1100)&&(size<=1285)) {css='1240';}
+	else
+	if ((size>1285)&&(size<=1371)) {css='1320';}
+	else
+	if (size>1371) {css='1400';}	
+    var next = i+1;
+    if (next == galerySize) next = 0;
+    
+    var prev = i-1;
+    if (prev < 0) prev = galerySize-1;
+    //для всех разрешений
+    nextImg = "../img/photos/"+css+"/"+ pictures[next]+'.jpg';
+    prevImg = "../img/photos/"+css+"/" + pictures[prev]+'.jpg';
+    var preloadImgNext = new Image();
+    preloadImgNext.src = nextImg;
+    var preloadImgPrev = new Image();
+    preloadImgPrev.src = prevImg;
+    
+}
+   $('.gal_arrow_right').bind(istouch,function()
+   {
+   	Viewer.next();
+   })
+   $('.gal_arrow_left').bind(istouch,function()
+   {
+   	Viewer.prev();
+   })
+     $(document).keyup(function(e){
+        if (e.keyCode==27) { $(".button_close_gal, .galery_back,.close_floor_gal,.close_photos_gal").trigger(istouch); Viewer.close()}
+        if (e.keyCode==39) $(".gal_arrow_right").trigger(istouch);
+        if (e.keyCode==37) $(".gal_arrow_left").trigger(istouch);
+    });
+
+    $('.razpolozhenie_na_etazhe').on(istouch,function()
+    {
+    	Array.prototype.in_array = function(p_val) {
+			var l;
+			for(var i = 0, l = this.length; i < l; i++) {
+				if(this[i] == p_val) {
+					return true;
+				}
+			}
+			return false;
+		}
+    	var data=$(this).attr('data-id').split('~');
+        
+    	$('.galery_floors').removeClass('display_none');
+    	var f_number = [101, 102, 103, 104,105,"106-1","106-2",107,108,109,110,111,112,113,114,115,116,117,118];
+		var s_number = [201, "202-1", "202-2", 203, 204,205,206,207,208,209,"210-1","210-2","211-1","211-2",212,213,214,215,216,217,218,219,220,"221-1a","221-1b","221-2",222,223,"223-a",224,225,226,227,228,229,230];
+		var t_number = [301, 302, 303, 304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,"332-1","332-2","333-1","333-2",334,335,"336-1","336-2","337-1","337-2","оф.1","оф.2","оф.3"];
+		if(f_number.in_array(data[0]))
+		{
+		  
+			$('.tenants_first_floor').removeClass('display_none');
+			for(var i=0;i<=data.length;i++)
+			{
+				$('.id_'+data[i]).removeClass('display_none');
+			}
+			
+		}
+		else
+		if(s_number.in_array(data[0]))
+		{
+			$('.tenants_second_floor').removeClass('display_none');
+			for(var i=0;i<=data.length;i++)
+			{
+				$('.id_'+data[i]).removeClass('display_none');
+			}
+		}
+		else 
+		{
+			$('.tenants_threed_floor').removeClass('display_none');
+			for(var i=0;i<=data.length;i++)
+			{
+				$('.id_'+data[i]).removeClass('display_none');
+			}
+		}
+    })
+    $('#show_all').on(istouch,function ()
+    {
+    	$('.visitors_plus_minus').addClass('visitors_plus_minus_back_pos_25');
+    	$('.visitors_block').addClass('height_zero background_color_fff2cc');
+    	$('.visitors_block .visitors_min_block').addClass('display_none')
+    	$('.visitors_block .visitors_max_block').removeClass('display_none')
+    })
+    $('#hide_all').on(istouch,function ()
+    {
+    	$('.visitors_plus_minus').removeClass('visitors_plus_minus_back_pos_25');
+    	$('.visitors_block').removeClass('height_zero background_color_fff2cc');
+    	$('.visitors_block .visitors_max_block').addClass('display_none')
+    	$('.visitors_block .visitors_min_block').removeClass('display_none')
+    })
+$('.visitors_plus_minus').on(istouch,function() 
+{
+	if( $(this).parent().find('.visitors_min_block').is(':visible') ) 
+		{
+			$(this).addClass('visitors_plus_minus_back_pos_25');
+			$(this).parent().addClass('height_zero background_color_fff2cc');
+			$(this).parent().find('.visitors_min_block').addClass('display_none');
+			$(this).parent().find('.visitors_max_block').removeClass('display_none');
+		}
+		else {
+			 $(this).removeClass('visitors_plus_minus_back_pos_25');
+			 $(this).parent().removeClass('height_zero background_color_fff2cc');
+			 $(this).parent().find(' .visitors_min_block').removeClass('display_none');
+			 $(this).parent().find('.visitors_max_block').addClass('display_none');
+		}
+	
+})
+
+$('.photo_gal img').on(istouch,Viewer.open);
+   
+
+</script>

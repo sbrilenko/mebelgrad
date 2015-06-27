@@ -1,0 +1,54 @@
+
+<?php 
+	$page = Page :: getInstance(Page :: $HTML5);
+	$page->setFavicon('../img/fiveicon.ico');
+	$page -> addScript("js/jquery-1.7.1-min.js");
+	$page-> setKeywords("");
+	$page->setDescription("");
+?>
+
+<div class='header
+	<?php if($controller -> view!='views/contactsIndex.phtml')
+		{
+			print ' header_new_height';
+		}
+	?>
+	'>
+	<div class='logo_region' align="left">
+	    <div class='logo'>
+	 				 <a href='/index' title=''>
+	   					 <div class="logo_click"></div>	 
+	   					 <div class="logo_text">Все для уюта и комфорта в вашем доме</div>	
+	  				</a>		 	
+		</div>
+	</div>
+			<div class='menu'> 
+			<ul>
+				<li <?php print ($controller -> view=='views/visitorsIndex.phtml') ? 'class="text_decoration_menu_now menu_first_out" >Покупателям' : 'class="menu_first_out"><a  href="visitors" title="">Покупателям</a>' ?> </li>
+				<li <?php print ($controller -> view=='views/spaceRent.phtml') ? 'class="text_decoration_menu_now" >Арендаторам' : '><a  href="space/Rent" title="">Арендаторам</a>' ?> </li>
+				<!--<li><a  href='#' title=''>О&nbsp;торговом&nbsp;центре</a></li>-->
+				<li <?php print ($controller -> view=='views/contactsIndex.phtml') ? 'class="text_decoration_menu_now" >Как&nbsp;проехать' : '><a  href="contacts" title="">Как&nbsp;проехать</a>' ?> </li>
+			</ul>	
+			</div>
+	<div class='contacts' >
+		   посетителям:<span>&nbsp;(062)&nbsp;387-19-82</span>
+		  <p>арендаторам:<span>&nbsp;(050)&nbsp;692-94-09</span></p>
+		  <p><span>Донецк, ул. Сигова 1б</span></p>
+	</div>
+   <div class='clear'></div>
+   	<?php
+   		if($controller -> view!='views/contactsIndex.phtml')
+		{
+		    print "<div class='under_menu_delim'></div> ";
+			/*print "<div class='clear under_menu_delim_new text_new_delim_header clear'>
+   					<div class='center_new_header_text'><span class='orange'>5 МАЯ 2013</span> В ТОРГОВОМ ЦЕНТРЕ <span class='orange'>ВЫХОДНОЙ</span></div>
+  					</div> ";*/
+		}
+		else 
+		{
+			print "<div class='under_menu_delim'></div> ";
+		}
+	?>	
+</div>
+
+<!-- -->
