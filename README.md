@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/sbrilenko/mebelgrad/blob/master/mockup/png/заглушка.jpg)
 
-![alt text](https://github.com/sbrilenko/mebelgrad/blob/master/mockup/png/main_100.jpg)
+![alt text](https://github.com/sbrilenko/mebelgrad/blob/master/mockup/png/main_1024.jpg)
 
 ![alt text](https://github.com/sbrilenko/mebelgrad/blob/master/mockup/png/арендаторам_1024.jpg)
 
