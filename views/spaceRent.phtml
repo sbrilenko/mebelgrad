@@ -1,0 +1,994 @@
+<?php
+    $page->setTitle("Торговые площади в аренду | Арендаторам | Мебельград");
+	$page->addScript("js/index.js");
+	$page->setKeywords("Мебельград МебельградЪ ВТЦ Выставочно-торговый центр Донецк мебель мебельный аренда торговые площади помещения");
+	$page->setDescription("ВТЦ «Мебельград» предлагет арендаторам площади в аренду. Выставочно-торговый центр «Мебельград» общей площадью 8500 м² состоит из первого (цокольного) этажа площадью 1700 м² с отдельным входом с уровня стоянки, второго этажа площадью 3350 м² с отдельным входом с уровня стоянки и третьего этажа площадью 3350 м².");
+?>
+
+	<div class='galery display_none'>
+<div class='position_fixed galery_back' ></div>
+   <div class='position_fixed z_index_9999 gall_position photo_gallery galery_floors_shadow back_and_padding_photo_gallery'>			  
+   				   <div class='top_left_arrow gal_arrow_left position_absolute gal_arrow_height_'><div class='gal_arrow '></div></div>	
+   				   <div class='top_right_arrow gal_arrow_right position_absolute gal_arrow_height_'><div class='gal_arrow gal_arrow_right_pos'></div></div>	
+   				    <div class='position_relative'>
+   				    	 <div class='position_absolute'>
+   				    		<div id='count' ></div>
+   				    	 </div>
+   				    </div>
+    		      <div class='float_right'><div class='close_photos_gal position_absolute' title='Закрыть (Esc)'></div></div>
+    		     	    <div class='position_relative overflow_hidden photo_gallery'>
+    		     	    	 <div class='position_absolute preloader' id='preloader_gif'></div>
+		    		    		<div id='for-map' >
+		    		    		</div>
+    		    		</div>
+    		    	
+    		     	
+    		    	<div class='position_relative'><div class='esc_gal'>Навигация: стрелка влево, стрелка вправо, Esc</div></div>
+    		     
+   </div>
+</div>
+<div class='clear'></div>
+<div class=' content_tenants'>
+	<div class='width4size margin_0_auto'>
+		<div class='tenants_top_title '>ВТЦ «Мебельград» предлагет арендаторам  площади в аренду</div>
+
+		<div class='clear'></div>
+		<div class='tenants_ras_after_text_block'></div>
+		<div class='width4size margin_0_auto'>
+		<div class='margin_left_27 margin_right_27'>
+			
+			<?php
+			$floor=1;
+			/*if ($controller -> hasParam('floor'))
+			{
+				$floor = $controller -> getParam('floor');	
+			}*/
+			if($controller->paramsArray[0]=='floor' AND $controller->paramsArray[1]>0 AND $controller->paramsArray[1]<4)
+			{
+				$floor = $controller -> getParam('floor');
+			}
+			else
+			{
+				$floor=3;
+			}
+            switch($floor)
+            {
+                case 1:
+                    $page->setTitle("Торговые площади в аренду в мебельном центре Мебельград, 1 этаж");
+                    $page->setKeywords("");
+                    $page->setDescription("ВТЦ «Мебельград» предлагет арендаторам площади в аренду. Выставочно-торговый центр «Мебельград» общей площадью 8500 м² состоит из первого (цокольного) этажа площадью 1700 м² с отдельным входом с уровня стоянки, второго этажа площадью 3350 м² с отдельным входом с уровня стоянки и третьего этажа площадью 3350 м².");
+                break;
+                case 2:
+                    $page->setTitle("Торговые площади в аренду в мебельном центре Мебельград, 2 этаж");
+                    $page->setKeywords("");
+                    $page->setDescription("ВТЦ «Мебельград» предлагет арендаторам площади в аренду. Выставочно-торговый центр «Мебельград» общей площадью 8500 м² состоит из первого (цокольного) этажа площадью 1700 м² с отдельным входом с уровня стоянки, второго этажа площадью 3350 м² с отдельным входом с уровня стоянки и третьего этажа площадью 3350 м².");
+                break;
+                case 3:
+                    $page->setTitle("Торговые площади в аренду в мебельном центре Мебельград, 3 этаж");
+                    $page->setKeywords("");
+                    $page->setDescription("ВТЦ «Мебельград» предлагет арендаторам площади в аренду. Выставочно-торговый центр «Мебельград» общей площадью 8500 м² состоит из первого (цокольного) этажа площадью 1700 м² с отдельным входом с уровня стоянки, второго этажа площадью 3350 м² с отдельным входом с уровня стоянки и третьего этажа площадью 3350 м².");
+                break;
+            }
+			if($floor<1 OR $floor>3) $floor=1;
+			if($floor==1) {$location_floor_info='floor_color_ralative_coord_floor_1';}
+			else if($floor==2) { $location_floor_info='floor_color_ralative_coord_floor_2';}
+			else if($floor==3) {$location_floor_info='floor_color_ralative_coord_floor_3';}
+			if($floor==1) { print "<div class='float_left tenants_first_floor'>";}
+			else if($floor==2) { print "<div class='float_left tenants_second_floor'>";}
+			else { print "<div class='float_left tenants_threed_floor'>";}
+	 		echo "<div id='floor_color' class='position_relative ".$location_floor_info."'>";
+			$sql_get_parent="SELECT * FROM floors WHERE floor=$floor AND numb<>'106' AND numb<>'202' AND numb<>'210' AND numb<>'332' AND numb<>'333' AND numb<>'336' AND numb<>'337' ORDER BY numb";
+			$db->query($sql_get_parent);
+			if($db->getCount()>0)
+			{
+				$arr=$db->getArray();
+				foreach($arr as $in=>$ni)
+				{
+					if($ni[parent]=='') {$color_of_place=$ni['color'];}
+					else {
+						$sql_get_parent_color="SELECT color FROM floors WHERE numb='$ni[parent]'";
+						$db->query($sql_get_parent_color);
+						if($db->getCount()>0)
+						{
+							$color_of_place=$db->getValue();
+						}
+					}
+					//площадь соя или родителя
+					if($ni[parent]=='') { $square_m_kv=$ni['kvadrat'];}
+					else {
+						$sql_get_parent_color="SELECT kvadrat FROM floors WHERE numb='$ni[parent]'";
+						$db->query($sql_get_parent_color);
+						if($db->getCount()>0)
+						{
+							$square_m_kv=$db->getValue();
+						}
+					}
+					//name_company
+					if($ni[parent]=='') $name_company=$ni[name_company];
+					else 
+					{
+						$sql_name_parent_company="SELECT name_company FROM floors WHERE numb='$ni[parent]'";
+						$db->query($sql_name_parent_company);
+						if($db->getCount()>0)
+						{
+							$name_company=$db->getValue();
+						}
+					}
+
+					if($ni[parent]=='') $contragent_square=$ni[numb];
+					else $contragent_square=$ni[parent];
+					$sql_square_="SELECT * FROM embl WHERE room_number='$contragent_square'";
+					$db->query($sql_square_);
+					if($db->getCount()>0)
+					{
+						$buble='big_buble';
+						
+					}
+					else
+					{
+						$buble='little_buble';
+					}
+					if($color_of_place==0 OR $color_of_place==2)
+					{
+						$color_of_place='floor_color_empty';
+						$empty_icon='space_rent_not_empty_icon';
+						$not_empty=0;
+						
+					}
+					else
+					{
+						$not_empty=1;
+						$color_of_place='floor_color_not_empty';
+						$empty_icon='space_rent_empty_icon';
+					}
+					//print $color_of_place;
+					if($floor==1 AND $ni['numb']=="101")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."'  alt='".$buble."' ref='".$name_company."'>
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	       
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";    
+					}
+					if($floor==1 AND $ni['numb']=="112")
+					{
+						
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute' >
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption_1 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."' > </div>
+				      	        <div class='floor".$ni['numb']."_exaption_1 ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+					if($floor==1 AND $ni['numb']=="116")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+						
+					}
+					if($floor==1 AND $ni['numb']=="118")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==1 AND $ni['numb']=="119")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					/*if($floor==1 AND $ni['numb']=="106")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."' > </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."' ></div>
+						    </div>";
+					}*/
+					if($floor==1 AND $ni['numb']=="120")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==1 AND $ni['numb']=="121")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==2 AND $ni['numb']=="209")
+					{
+							echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 special_margin_top_for_spacerent_room_empty_number'></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+					if($floor==2 AND $ni['numb']=="210-2")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		 
+				      	     </div>
+				      	     
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+                    if($floor==2 AND $ni['numb']=="214-1")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 special_margin_top_for_spacerent_room_empty_number'></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+                    if($floor==2 AND $ni['numb']=="221-1a")
+                    {
+                        echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+				        <div class='id_".$ni['numb']." position_absolute'>
+				     		    <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	        <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+                    }
+                    if($floor==2 AND $ni['numb']=="221-1b")
+                    {
+                        echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+				        <div class='id_".$ni['numb']." position_absolute'>
+				     		    <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	        <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+                    }
+					if($floor==2 AND $ni['numb']=="223")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		    <div class='floor".$ni['numb']."_exaption_2 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	          <div class='floor".$ni['numb']."_exaption_2 ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+    	           if($floor==2 AND $ni['numb']=="223-a")
+                    {
+                        echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+				        <div class='id_".$ni['numb']." position_absolute'>
+				     		    <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	        <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+                    }
+					if($floor==2 AND $ni['numb']=="228")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor228 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor228 ".$color_of_place." background_color_transparent'  data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==2 AND $ni['numb']=="229")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor229 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor229 ".$color_of_place." background_color_transparent'  data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==2 AND $ni['numb']=="230")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor230 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>      
+				      	       <div class='floor230 ".$color_of_place." background_color_transparent'  data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==3 AND $ni['numb']=="329")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."_exaption'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 '></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+					if($floor==3 AND $ni['numb']=="338")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		 
+				      	     </div>
+				      	     
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+					if($floor==3 AND $ni['numb']=="333")
+					{
+						echo "<div class='position_absolute pomesh' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_".$ni['numb']." position_absolute'>
+				     		  <div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  <div class='floor".$ni['numb']."_exaption ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right '>
+				      	      			<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 special_margin_top_for_spacerent_room_empty_number'></div>
+				      	      		</div>
+				      	       </div>
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+				      	        <div class='floor".$ni['numb']."_exaption ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'></div>
+						    </div>";
+					}
+					if($floor==3 AND $ni['numb']=="оф.1")
+					{
+						echo "<div class='position_absolute pomesh' data-id='of1' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_of1 position_absolute'>
+				     		  <div class='floor_of1 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	       <div class='floor_of1 ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==3 AND $ni['numb']=="оф.2")
+					{
+						echo "<div class='position_absolute pomesh' data-id='of2' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_of2 position_absolute'>
+				     		  <div class='floor_of2 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	       <div class='floor_of2 ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					if($floor==3 AND $ni['numb']=="оф.3")
+					{
+						echo "<div class='position_absolute pomesh' data-id='of3' alt='".$buble."' ref='".$name_company."'>
+							 
+							 <div class='id_of3 position_absolute'>
+				     		  <div class='floor_of3 ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				      	     </div>
+				      	       <div class='floor_of3 ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'> </div>
+						    </div>";
+					}
+					else 
+					if($ni['numb']!="214-1" AND $ni['numb']!="121" AND $ni['numb']!="120" AND $ni['numb']!="оф.1" AND $ni['numb']!="оф.2" AND $ni['numb']!="оф.3" AND $ni['numb']!="338" AND $ni['numb']!="333" AND $ni['numb']!="329" AND $ni['numb']!="229" AND $ni['numb']!="230" AND $ni['numb']!="228" AND $ni['numb']!="118" AND $ni['numb']!="119" AND $ni['numb']!="223"  AND $ni['numb']!="223-a" AND $ni['numb']!="210-2" AND $ni['numb']!="209" AND $ni['numb']!="116" AND $ni['numb']!="112" AND $ni['numb']!="101")
+
+						{
+							echo "<div class='pomesh position_absolute' data-id='".$ni['numb']."' alt='".$buble."' ref='".$name_company."'>
+							 
+							  <div class='id_".$ni['numb']." position_absolute'>
+				     		  		<div class='floor".$ni['numb']." ".$color_of_place."' data-id='".$ni['numb']."'></div>
+				     		  </div>
+				      	      <div class='floor".$ni['numb']."'>
+				      	      		<div class='float_right'>";
+									if($ni['numb']=='211-1' OR $ni['numb']=='211-2' OR $ni['numb']=='208' OR $ni['numb']=='321')
+									{
+										$special_margin_top='special_margin_top_for_spacerent_room_empty_number';
+									}
+									else 
+									{
+										$special_margin_top='';
+									}
+				      	      		print "<div class='".$empty_icon." width_for_mpty_not_icon_padding_0_m_min_35 ".$special_margin_top."'></div>";
+				      	      print "</div>
+				      	       </div>
+				      	       
+				      	       <div class='floor".$ni['numb']." ".$color_of_place." background_color_transparent' data-id='".$ni['numb']."'>
+							 			
+				      	     </div>
+						    </div>";		
+						}
+					//buble
+						if((!empty($name_company) AND $color_of_place==0) OR(!empty($square_m_kv) AND $color_of_place==0))
+							{
+								 if($not_empty==0)
+							    {
+							    	if($ni['numb']=='оф.1')
+							    	{
+							    		$bubble_id='of1';
+							    	}
+							    	else
+							    	if($ni['numb']=='оф.2')
+									{
+										$bubble_id='of2';
+									}
+									else
+									if($ni['numb']=='оф.3'){
+										$bubble_id='of3';
+									}
+									else {
+											$bubble_id=$ni['numb'];
+									}
+							    	  echo "<div id='buble$bubble_id' class='$buble position_absolute buble_text'><div class='wrapper' >
+										<div class='cell height_little_buble'>
+											<div class='content_buble'>
+												Площадь: $square_m_kv м²
+											</div>
+										</div>
+									</div></div>  ";
+							    }
+								else
+								{
+									if(!empty($name_company))
+									{
+										//get parent
+										$sql="SELECT parent,numb FROM floors WHERE numb='$ni[numb]'";
+										$db->query($sql);
+										if($db->getCount()>0)
+										{
+											$par=$db->getArray();
+											if($par[0][parent]=='')
+											{
+												$parent_room_number=$ni[numb];
+											}
+											else
+											{
+												/*$sql="SELECT numb FROM floors WHERE parent='$par[0][numb]'";
+												$db->query($sql);
+												if($db->getCount()>0)
+												{
+													$parent_room_number=$db->getValue();
+												}*/
+												$parent_room_number=$par[0][parent];
+											}
+											
+										}
+
+										//select img_embl
+										$sq="SELECT file_name FROM embl WHERE room_number='$parent_room_number' AND temp=1";
+										$db->query($sq);
+										if($db->getCount()>0)
+										{
+											$file_name=$db->getValue();
+											echo "<div id='buble$ni[numb]' class='$buble position_absolute buble_text'><div class='wrapper' >
+											<div class='cell height_big_buble'>
+												<div class='content_buble' >
+												<div class='style_img_buble'><img src='../img/embl/1000/".$file_name."_buble.png' alt=''/></div>
+												 ".$name_company."
+												</div>
+											</div>
+											</div></div>";
+										}
+										else
+										{
+											echo "<div id='buble$ni[numb]' class='$buble position_absolute buble_text'><div class='wrapper' >
+										<div class='cell height_little_buble'>
+											<div class='content_buble' >
+											 ".$name_company."
+											</div>
+										</div>
+										</div></div>  ";
+										}
+										
+									}
+									 
+								}
+							}
+				}
+              
+			}
+				
+	     echo "</div>";    		
+	  echo "</div>";
+	 
+	 echo "<div class='float_right width_449'>";
+	 print "<div class='space_rent_floor_menu'>";
+	    print ($floor==1) ? "<div class='float_left this_is_floor_first'>1 этаж</div>" : "<div class='float_left margin_left_7'><a class='first_floor' href='/space/Rent/floor/1'><div class='float_left arrow_up_down_floor'>&darr;</div>1 этаж</a></div>";
+	    print ($floor==2) ? "<div class='float_left this_is_floor'>2 этаж</div>" : "<div class='float_left '><a class='second_floor' href='/space/Rent/floor/2'><div class='float_left arrow_up_down_floor'>&uarr;&nbsp;</div>2 этаж</a></div>";
+	 	print ($floor==3) ? "<div class='float_left this_is_floor'>3 этаж</div>" : "<div class='float_left'><a class='thr_floor' href='/space/Rent/floor/3'><div class='float_left arrow_up_down_floor'>&uarr;&nbsp;</div>3 этаж</a></div>";
+	 print "</div>";
+	 echo "<div class='space_rent_right_buiding '>   
+	 	<div class='position_absolute'>";
+	 	print ($floor==3) ? "<div class='space_rent_right_buiding_floor_vid_1_in'></div>" : "<div class='space_rent_right_buiding_floor_vid_1 display_none'></div>";
+	    print ($floor==2) ? "<div class='space_rent_right_buiding_floor_vid_2_in'></div>" : "<div class='space_rent_right_buiding_floor_vid_2 display_none'></div>";
+	 	print ($floor==1) ? "<div class='space_rent_right_buiding_floor_vid_3_in'></div>" : "<div class='space_rent_right_buiding_floor_vid_3 display_none'></div>"; 		
+	    print "</div>
+	 </div>";
+	 	
+	 //icon empty_or_not
+	 print '<div class="clear"></div>';
+	 print '<div class="space_rent_empty_or_not_icon_block">';
+	 	    print '<div class="space_rent_not_empty_icon"> - Свободная площадь</div>';
+			  print '<div class="space_rent_empty_icon"> - Площадь занята</div>';
+	 print '</div>';
+	 ///text
+	 print "<div class='tenants_top_text_block_title'>Предлагаемые площади</div>
+				<div class='tenants_top_text_block  width_449 margin_bottom_0'>Выставочно-торговый центр «Мебельград» общей площадью  8500&nbsp;м² состоит из ";
+				print ($floor==1) ? "<span class='not_link_span'>первого (цокольного) этажа </span>" :  "<a class='link_dashed' href='/space/Rent/floor/1'>первого (цокольного) этажа</a>";
+				print " площадью 1700&nbsp;м² с отдельным входом с уровня стоянки, ";
+				print ($floor==2) ? "<span class='not_link_span'>второго этажа</span>" :  "<a class='link_dashed' href='/space/Rent/floor/2'>второго этажа</a>";
+				print " площадью 3350&nbsp;м² с отдельным входом с уровня стоянки и ";
+				print ($floor==3) ? "<span class='not_link_span'>третьего этажа</span>" :  "<a class='link_dashed' href='/space/Rent/floor/3'>третьего этажа</a>";
+				print " площадью 3350&nbsp;м².<br />";
+	 			print '<br /><b><span style="text-transform: lowercase;"><span style="text-transform: uppercase;">Н</span>А СХЕМАХ ЭТАЖЕЙ ВЫ МОЖЕТЕ УВИДЕТЬ ПРЕДЛАГАЕМЫЕ В АРЕНДУ ПЛОЩАДИ, А ТАКЖЕ АССОРТИМЕНТ ТОВАРОВ КОМПАНИЙ, УЖЕ АРЕНДУЮЩИХ ПЛОЩАДИ В <span style="text-transform: uppercase;">ВТЦ</span>.</span></b></div>';
+	 			print '<br /><b>По вопросам аренды обращаться по телефону: (050)&nbsp;692&nbsp;94&nbsp;09.</b>';
+	 echo "</div>";
+	 
+	 print "<div class='clear'></div>";
+	 print "<div class='width_778 margin_top_min_etaj_and_photo_etaja'>";
+	 print "<div class='float_left space_rent_floor_menu margin_left_floors_menu_under_big_building'>";
+	    print ($floor==1) ? "<div class='float_left this_is_floor_first'>1 этаж</div>" : "<div class='float_left margin_left_7'><a class='first_floor' href='/space/Rent/floor/1'><div class='float_left arrow_up_down_floor'>&darr;</div>1 этаж</a></div>";
+	    print ($floor==2) ? "<div class='float_left this_is_floor'>2 этаж</div>" : "<div class='float_left '><a class='second_floor' href='/space/Rent/floor/2'><div class='float_left arrow_up_down_floor'>&uarr;&nbsp;</div>2 этаж</a></div>";
+	 	print ($floor==3) ? "<div class='float_left this_is_floor'>3 этаж</div>" : "<div class='float_left'><a class='thr_floor' href='/space/Rent/floor/3'><div class='float_left arrow_up_down_floor'>&uarr;&nbsp;</div>3 этаж</a></div>";
+	  print "</div>";
+	 
+	 print "<div class='float_right'>
+	 <div class='space_rent_photo' id='floor_".$floor."_photos'><span class='space_rent_photo_text'>Фотографии этажа</span></div>
+	 </div>";
+	 print "</div>";
+	 print "	<div class='clear'></div>
+		<div class='tenants_ras_after_text_block  tenants_delim tenants_ras_after_text_block tenants_ras_after_delim'></div>";
+	 print "<div <!--class='tenants_top_razt_after_title'-->
+			<div class='float_left'>
+				<div class='tenants_top_text_block_title'>Расположение</div>
+				<div class='tenants_top_text_block'>ВТЦ «Мебельград» расположен в 3км от «Донбасс Арены» вниз по проспекту Мира, рядом с магазином строительных материалов «ОЛДИ», что обеспечивает большой поток покупателей с момента открытия.</div>
+				<div class='tenants_top_text_block_title'>Безопасность</div>
+				<div class='tenants_top_text_block margin_bottom_0'>В рабочее время ТЦ охраняется службой безопасносности арендодателя. В&nbsp;нерабочее время здание передается под охрану на пульт милиции.</div>
+			</div>
+			<div class='float_right'>
+				<div class='tenants_top_text_block_title'>Комфорт и удобство</div>
+				<div class='tenants_top_text_block margin_bottom_0'>Этажи ТЦ связаны грузопассажирским лифтом и эскалатором. Торговый центр оснащен системой вентиляции, кондиционирования и воздушного отопления, всеми коммуникациями. Вокруг торгового центра имеется комплекс автостоянок.   
+				<br /><br />К услугам покупателей уютное кафе «Мяскoff» на первом этаже, где они смогут отдохнуть и вернуться к выбору мебели. Время работы ВТЦ: Пн-Сб с&nbsp;10:00 до&nbsp;19:00, Вс с&nbsp;10:00 до&nbsp;18:00.
+				<br />
+				<!--<br /><b>С 1 мая время работы ТЦ: Пн-Сб с&nbsp;10:00 до&nbsp;19:00, Вс с&nbsp;10:00 до&nbsp;18:00.</b>-->
+			</div>
+			</div>
+			
+		</div>
+		<div class='clear'></div>";
+	 //арендаторы
+	 print '<div class="clear before_arendators_block_height"></div>';
+	 print '<div class="arendators_block">';
+	 print "<div class='tenants_delim'></div>";
+	 	print '<div class="arendators_block_padding">';
+			print '<div class="arendators_title">Арендаторы '.$floor.'-го этажа</div>';
+			$sql_arendators='SELECT * FROM floors WHERE floor='.$floor.' AND parent="" AND color<>0 AND name_company<>"" ORDER BY numb';
+			$db->query($sql_arendators);
+			if($db->getCount()>0)
+			{
+				
+				print '<div class="arendators_text_link">';
+				$arr=$db->getArray();
+				$first=0;
+				$second=0;
+				$thr=0;
+				if((count($arr)%3)==1)
+					{
+						$first=round(count($arr)/3)+1;
+					}
+					else
+					if((count($arr)%3)==2)
+					{
+						$first=round(count($arr)/3);
+					}
+					else
+					{
+						$first=round(count($arr)/3);
+					}
+				$second=round((count($arr)-$first)/2);
+				$thr=count($arr)-($first+$second);
+
+
+					for($i=0;$i<3;$i++)
+					{
+						if($i==0) { $ot=0;$do=$first; }
+						else if($i==1){ $ot=$first; $do=$first+$second;}
+						else {$ot=$first+$second;$do=$first+$second+$thr; }
+						print '<div>';
+						for($j=$ot;$j<$do;$j++)
+						{
+							$cherez_zapyztuyu=$arr[$j]['numb'];
+							$color_of_place=$arr[$j]['color']; 
+							$name_company=$arr[$j]['name_company']; 
+							$square_m_kv=$arr[$j]['kvadrat'];
+							//через запятую пробел
+							$sql='SELECT * FROM floors WHERE parent="'.$arr[$j]['numb'].'"';
+							$db->query($sql);
+							if($db->getCount()>0)
+							{
+								$cherez_zapyztuyu_arr=$db->getArray();
+								foreach($cherez_zapyztuyu_arr as $ind=>$valu)
+								{
+									$cherez_zapyztuyu.=', '.$valu['numb'];
+								}
+							}
+							print '<div class="budet_link"><a href="visitors/premises/'.$arr[$j]['numb'].'#'.$arr[$j]['numb'].'" alt="">'.$name_company.' ('.$cherez_zapyztuyu.')'.'</a></div>';
+						}
+						print '</div>';
+					}
+
+					
+					
+				print '</div>';
+			}
+		print '</div>';
+	 print "<div class='clear tenants_delim position_0_bottom height_18'></div>";
+	 print '</div>';
+	 
+	  print '</div>';//margin_left_27
+			?>
+		
+	</div>
+</div>
+
+<script type='text/javascript'>
+ $('.galery_back,.close_photos_gal').live('click touchend',function()
+    {
+    	Viewer.close();
+    })      
+    
+	 //gal
+var alt_;  
+var pictures,
+    galerySize,     // переменная, в которой будет храниться размер галереи 
+    current,        // текущее изображение (его порядок в массиве)
+    nextImg,        // следующее изображение
+    prevImg,        // предыдущее изображение 
+    isAnimated = false;     // флаг - анимируется ли что-то в данный момент 
+ var m_anim_left;
+ var src_;
+ var floor;
+ var Viewer = {
+   open: function(){
+        var css;
+	     var size=$(window).width();
+		if (size<=1100) { css='1000';}
+		else
+		if ((size>1100)&&(size<=1285)) {css='1240';}
+		else
+		if ((size>1285)&&(size<=1371)) {css='1320';}
+		else
+		if (size>1371) {css='1400';}	
+		
+		$('.galery').removeClass('display_none');
+		var galery = $("#for-map");
+       
+	     $.ajax({
+	        url: "../../lib/img_floors.php",
+	        type: "post",
+	        async: false,
+	        data:{id:floor},
+	        success: function(data2){
+	            eval(data2); 
+	        }    
+	    });
+	    if(pictures.length==1) {
+	    	$('.gal_arrow_left,.gal_arrow_right').addClass('display_none');
+	    }
+	    else
+	   	{
+	   		$('.gal_arrow_left,.gal_arrow_right').removeClass('display_none');
+	   	}
+	    current=0; 	    
+	    galerySize = pictures.length;
+	    src_ = '../img/photos_floors/'+floor+'/'+css+'/'+pictures[current];
+        var mainImg = $("<img />",{id : "mainImg",src : src_, alt : "galery"});
+        galery.append('<img src="'+src_+'"/>');
+        $('#count').replaceWith('<div id="count">'+(current+1)+' / '+galerySize+'</div>');
+        preload(current);
+     },
+       next: function(){
+       if(pictures.length==1) return false;
+       if (!isAnimated){
+       	 var css;
+	     var size=$(window).width();
+		if (size<='1100') { css='1000';m_anim_left=687;}
+		else
+		if ((size>'1100')&&(size<='1285')) {css='1240';m_anim_left=825;}
+		else
+		if ((size>'1285')&&(size<='1371')) {css='1320';m_anim_left=882;}
+		else
+		if (size>'1371') {css='1400';m_anim_left=999;}	
+        isAnimated = true;
+         
+        $('#for-map img').fadeOut("normal",function(){
+					$(this).attr('src',nextImg).fadeIn("normal");
+		            current++;
+		            if (current==galerySize) current = 0;
+		              preload(current);
+		              isAnimated = false;	
+					  $('#count').replaceWith('<div id="count" >'+(current+1)+' / '+galerySize+'</div>');
+					
+				});
+				return false;
+    }
+        
+      },
+      prev: function() 
+      	{
+      	if(pictures.length==1) return false;
+       if (!isAnimated){
+       	 var css;
+	     var size=$(window).width();
+		if (size<=1100) { css='1000';m_anim_left=687;}
+		else
+		if ((size>1100)&&(size<=1285)) {css='1240';m_anim_left=825;}
+		else
+		if ((size>1285)&&(size<=1371)) {css='1320';m_anim_left=882;}
+		else
+		if (size>1371) {css=1400;m_anim_left=999;}	
+        isAnimated = true;
+        $('#for-map img').fadeOut("normal",function(){
+					$(this).attr('src',prevImg).fadeIn("normal");
+					 current--;
+		            if (current<0) current = galerySize-1;
+		            preload(current);
+					isAnimated=false;
+					 $('#count').replaceWith('<div id="count">'+(current+1)+' / '+galerySize+'</div>'); 
+				});
+				return false;
+
+    }
+      },
+       close: function(){
+        $(".galery").addClass('display_none');
+       $("#for-map").empty();
+        return false;
+      },
+      bindKeys: function(e){
+        switch (e.keyCode){
+          case 27: Viewer.close(); break;
+        }
+      }
+ }
+ function preload(i){
+ 	 var css;
+     var size=$(window).width();
+	if (size<=1100) { css='1000';}
+	else
+	if ((size>1100)&&(size<=1285)) {css='1240';}
+	else
+	if ((size>1285)&&(size<=1371)) {css='1320';}
+	else
+	if (size>1371) {css='1400';}	
+    var next = i+1;
+    if (next == galerySize) next = 0;
+    
+    var prev = i-1;
+    if (prev < 0) prev = galerySize-1;
+    nextImg = "../img/photos_floors/"+floor+"/"+css+"/"+ pictures[next];
+    prevImg = "../img/photos_floors/"+floor+"/"+css+"/" + pictures[prev];
+    var preloadImgNext = new Image();
+    preloadImgNext.src = nextImg;
+    var preloadImgPrev = new Image();
+    preloadImgPrev.src = prevImg;
+    
+}
+   $('.gal_arrow_right').bind('click',function()
+   {
+   	Viewer.next();
+   })
+   $('.gal_arrow_left').bind('click',function()
+   {
+   	Viewer.prev();
+   })
+     $(document).keyup(function(e){
+      if (e.keyCode==27) { $(" .galery_back,").trigger("click"); Viewer.close()}
+        if (e.keyCode==39) $(".gal_arrow_right").trigger("click");
+        if (e.keyCode==37) $(".gal_arrow_left").trigger("click");
+    });
+   
+    $('#floor_1_photos,#floor_2_photos,#floor_3_photos').live('click touchend',function()
+    {
+    	floor=$(this).attr('id');
+		if(floor=='floor_1_photos')
+		{
+			floor=1;
+		}
+		else
+		if(floor=='floor_2_photos')
+		{
+			floor=2;
+		}	
+		else
+		{
+			floor=3;
+		}
+    	Viewer.open();
+    })
+  
+			if ( $.browser.msie && parseInt($.browser.version, 10)==7) {
+			 	$('.pomesh').each(function()
+					{
+						$(this).attr('title',$(this).attr('ref'))
+					})
+							}
+		$('.pomesh').live('touchend',function(e)
+		{
+			var size=$(window).width();
+				var x,y;
+				var data_id=$(this).attr('data-id');
+			  	if (size<='1085') { if(alt_=='big_buble') {x=90;y=100; }else {x=88;y=75;}}
+			  	if ((size>'1085')&&(size<='1290')) {if(alt_=='big_buble') {x=120;y=140; }else {x=115;y=95;}}
+			  	if ((size>'1290')&&(size<='1371')) { if(alt_=='big_buble') {x=120;y=140; }else {x=115;y=95;}}
+			  	if(size>'1371') { if(alt_=='big_buble') {x=120;y=140; }else { x=123; y=100;}}
+				$('#buble'+data_id).css('z-index','15').css({'top':e.pageY - $(this).offset().top-y ,'left':  e.pageX - $(this).offset().left-x}).show(); 
+			
+		}).live('mouseenter',function(e) {
+			  
+				alt_=$(this).attr('alt');
+				
+				var data_id=$(this).attr('data-id')
+				$('.id_'+data_id+' div').addClass('color_hover_pomesh');
+			if ( $.browser.msie && parseInt($.browser.version, 10)==7) {
+
+			}else
+			{
+				
+				var size=$(window).width();
+				var x,y;
+			  	if (size<='1085') { if(alt_=='big_buble') {x=90;y=100; }else {x=88;y=75;}}
+			  	if ((size>'1085')&&(size<='1290')) {if(alt_=='big_buble') {x=120;y=140; }else {x=115;y=95;}}
+			  	if ((size>'1290')&&(size<='1371')) { if(alt_=='big_buble') {x=120;y=140; }else {x=115;y=95;}}
+			  	if(size>'1371') { if(alt_=='big_buble') {x=120;y=140; }else { x=123; y=100;}}
+				$('#buble'+data_id).css('z-index','15').css({'top':e.pageY - $(this).offset().top-y ,'left':  e.pageX - $(this).offset().left-x}).show(); 
+			}
+				
+		}).mousemove(function(e) {	
+			
+			alt_=$(this).attr('alt');
+			var data_id=$(this).attr('data-id')		
+			var size=$(window).width();
+				var x,y;
+			  if (size<='1085') { if(alt_=='big_buble') {x=90;y=100; }else {x=88;y=75;}}
+			  	if ((size>'1085')&&(size<='1290')) {if(alt_=='big_buble') {x=120;y=140; }else {x=115;y=95;}}
+			  	if ((size>'1290')&&(size<='1371')) { if(alt_=='big_buble') {x=120;y=140; }else {x=115;y=95;}}
+			  	if(size>'1371') { if(alt_=='big_buble') {x=120;y=140; }else { x=123; y=100;}}
+			$('#buble'+data_id).css({'top': e.pageY - $(this).offset().top- y,'left': e.pageX - $(this).offset().left -x});
+		}).live('mouseleave',function() {
+			var data_id=$(this).attr('data-id')
+			$('.id_'+data_id+' div').removeClass('color_hover_pomesh');
+			$('#buble'+data_id).css('z-index','1').hide();
+		});
+	$('.first_floor, .second_floor,.thr_floor').live('touchend',function()
+	{
+		location.href=$(this).attr('href');
+		return false;
+	}).live('mouseover ',function() {
+		var this_class=$(this).attr('class');
+			switch (this_class)
+			{
+				case 'first_floor':
+				$('.space_rent_right_buiding_floor_vid_3').show().css('filter','').css('opacity','1');
+				break;
+				case 'second_floor':
+				$('.space_rent_right_buiding_floor_vid_2').show().css('filter','').css('opacity','1');
+				break;
+				case 'thr_floor':
+				$('.space_rent_right_buiding_floor_vid_1').show().css('filter','').css('opacity','1');
+				break;
+			}
+		
+	}).live('mouseout',function() {
+		var this_class=$(this).attr('class');
+				switch (this_class)
+		{
+			case 'first_floor':
+			$('.space_rent_right_buiding_floor_vid_3').hide();
+			break;
+			case 'second_floor':
+			$('.space_rent_right_buiding_floor_vid_2').hide();
+			break;
+			case 'thr_floor':
+			$('.space_rent_right_buiding_floor_vid_1').hide();
+			break;
+		}
+		
+	})
+  
+</script>
