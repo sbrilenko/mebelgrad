@@ -1,5 +1,9 @@
 # mebelgrad
 
+**Task:** Create web-site for shopping mall selling furniture and accessories
+
+**Technologies:** PHP, MySQL, jQuery
+
 ![alt text](https://github.com/sbrilenko/mebelgrad/blob/master/mockup/png/заглушка.jpg)
 
 ----------------------------------------------------------------------------------------------
